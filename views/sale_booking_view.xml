@@ -83,7 +83,7 @@
                 </div>
                 <group name="sale_header">
                     <group name="partner_details">
-                        <field name="booking_no" readonly="1"/>
+<!--                        <field name="booking_no" readonly="1"/>-->
                         <field name="bk_method"/>
                         <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options='{"always_reload": True}'/>
                         <field name="partner_invoice_id" groups="account.group_delivery_invoice_address" context="{'default_type':'invoice'}" options='{"always_reload": True}'/>
@@ -529,7 +529,7 @@
                 <field name="message_needaction" invisible="1"/>
                 <field name="name" string="Number" readonly="1" decoration-bf="1"/>
                 <field name="date_order" string="Order Date" widget="date" optional="show"/>
-                <field name="booking_no" string="Booking No"/>
+<!--                <field name="booking_no" string="Booking No"/>-->
                 <field name="booking_name" string="Booking Name"/>
                 <field name="check_in_date"/>
                 <field name="check_out_date"/>
