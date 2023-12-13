@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Hotel Reservation" id="menu_hotels_root" sequence="30"
+        web_icon="wt_hotel_reservation,static/src/img/icon.png"/>
+
+
+    <!-- Hotel Details -->
+
+
+    <menuitem
+            id="hotel_main_menu"
+            groups="base.group_erp_manager"
+            parent="menu_hotels_root" sequence="3"
+            name="Hotel Details"/>
+    <menuitem
+            action="hotel_management_action"
+            id="hotels_main_menu"
+            parent="hotel_main_menu" sequence="0"
+            name="Hotels"/>
+    <menuitem
+            action="hotel_room_action"
+            id="hotel_room_menu"
+            parent="hotel_main_menu" sequence="2"
+            name="Rooms"/>
+
+    <!-- Hotel Booking -->
+    <menuitem
+            id="ap_hotel_booking_menu"
+            parent="menu_hotels_root" sequence="0"
+            name="Hotel Booking"/>
+    <menuitem
+            action="ap_action_orders"
+            id="ap_hotels_booking_main_menu"
+            parent="ap_hotel_booking_menu" sequence="0"
+            name="Booking"/>
+
+<!--    <menuitem-->
+<!--            id="hotel_booking_menu"-->
+<!--            groups="base.group_erp_manager"-->
+<!--            parent="menu_hotels_root" sequence="0"-->
+<!--            name="Hotel Booking"/>-->
+<!--    <menuitem-->
+<!--            action="hotel_hotel_booking_action"-->
+<!--            id="hotels_booking_main_menu"-->
+<!--            parent="hotel_booking_menu" sequence="0"-->
+<!--            name="Booking"/>-->
+    <menuitem
+        id="hotel_configuration_menu"
+        groups="base.group_erp_manager"
+        parent="menu_hotels_root" sequence="100"
+        name="Configuration"/>
+
+    <!-- Configuration -->
+    <menuitem
+        action="hotel_room_type_action"
+        id="rooms_type_menu"
+        parent="hotel_configuration_menu" sequence="0"
+        name="Room Type"/>
+    <menuitem
+        action="action_appeul_room_category"
+        id="rooms_category_menu"
+        parent="hotel_configuration_menu" sequence="1"
+        name="Room Categories"/>
+    <menuitem
+        action="action_hotel_meal"
+        id="hotel_meal_menu"
+        parent="hotel_configuration_menu" sequence="4"
+        name="Meals"/>
+    <menuitem
+        action="room_ameneties_action"
+        id="room_amenities_menu"
+        parent="hotel_configuration_menu" sequence="2"
+        name="Room Amenities"/>
+    <menuitem
+        action="feat_ameneties_action"
+        id="feat_amenities_menu"
+        parent="hotel_configuration_menu" sequence="2"
+        name="Featured Amenities"/>
+    <menuitem
+        action="hotel_type_action"
+        id="hotel_type_menu"
+        parent="hotel_configuration_menu" sequence="3"
+        name="Hotel Type"/>
+    <menuitem
+        action="hotel_amenities_action"
+        id="hotel_amenities_menu"
+        parent="hotel_configuration_menu" sequence="4"
+        name="Hotel Amenities"/>
+<!--    <menuitem-->
+<!--        action="appeul_island_action"-->
+<!--        id="hotel_island_menu"-->
+<!--        parent="hotel_configuration_menu" sequence="4"-->
+<!--        name="Islands"/>-->
+    <menuitem
+        action="appeul_atolls_action"
+        id="appeul_atoll_menu"
+        parent="hotel_configuration_menu" sequence="4"
+        name="Atolls/Islands"/>
+
+    <menuitem
+        action="appeul_payment_methods_action"
+        id="hotel_payment_method_menu"
+        parent="hotel_configuration_menu" sequence="4"
+        name="Payment Methods"/>
+
+    <menuitem
+        action="appeul_amenity_category_action"
+        id="amenity_category_menu"
+        parent="hotel_configuration_menu" sequence="4"
+        name="Amenity Categories"/>
+
+    <menuitem id="hotel_config_menu_action_product_pricelist"
+            parent="wt_hotel_reservation.hotel_configuration_menu"
+            action="product.product_pricelist_action2"
+            groups="product.group_product_pricelist"
+            sequence="20"/>
+</odoo>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hotel_tree" model="ir.ui.view">
+        <field name="name">hotel.hotel.tree</field>
+        <field name="model">hotel.hotel</field>
+        <field name="arch" type="xml">
+            <tree string="Hotels">
+                <field name="sequence" widget="handle"/>
+                <field name="name" string="Name"/>
+                <field name="hotel_type"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_hotel_form" model="ir.ui.view">
+        <field name="name">hotel.hotel.form</field>
+        <field name="model">hotel.hotel</field>
+        <field name="arch" type="xml">
+            <form string="Hotels">
+                <header>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <div class="oe_button_box" name="button_box"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+<!--                            <field name="owner_id"/>-->
+<!--                            <span class="o_form_label o_td_label" name="address_name">-->
+<!--                                <b>Address</b>-->
+<!--                            </span>-->
+<!--                            <div class="o_address_format">-->
+<!--                                <field name="street" placeholder="Street..." class="o_address_street"/>-->
+<!--                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>-->
+<!--                                <field name="city" placeholder="City" class="o_address_city"/>-->
+<!--                                <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>-->
+<!--                                <field name="zip" placeholder="ZIP" class="o_address_zip"/>-->
+<!--                                <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>-->
+<!--                            </div>-->
+
+                            <!-- widget="res_partner_many2one" context="{'show_address': 1}" options="{&quot;always_reload&quot;: True}" -->
+
+<!--                            <field name="description"/>-->
+                            <field name="company_id"/>
+                            <field name="about"/>
+                            <field name="company_info"/>
+                            <field name="property_info"/>
+                            <field name="neighbourhood_info"/>
+                            <field name="the_fine_print"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="hotel_type"/>
+                            <field name="star_rate" widget="priority"/>
+                            <field name="featured_amenity_ids" widget="many2many_tags"/>
+                            <field name="payment_method_ids" widget="many2many_tags"/>
+                            <field name="email" widget="email"/>
+                            <field name="phone_number"/>
+                            <field name="check_in_time" widget="float_time"/>
+                            <field name="check_out_time" widget="float_time"/>
+                            <field name='island_id'/>
+                            <field name='lattitude'/>
+                            <field name='longitude'/>
+                            <field name='cover_image' widget='image' class="oe_avatar"/>
+
+<!--                            <field name="selected_room_ids" widget="many2many_tags"-->
+<!--                                domain="[('id', 'in', room_ids), ('state', '=', 'available')]"/>-->
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Room Categories">
+                            <field name="room_category_ids" context="{'default_hotel_id': active_id, 'form_view_ref': 'wt_hotel_reservation.view_appeul_room_category_form'}" mode="kanban">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="size"/>
+
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click">
+                                                <div class="o_kanban_image">
+                                                    <img t-att-src="kanban_image('room.category', 'featured_image', record.id.raw_value)" alt="Category Image" class="o_image_64_contain"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <h2 class="o_kanban_record_title"><field name="name"/></h2>
+
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Room Category">
+                                    <sheet>
+<!--                                        <field name="active" invisible="1"/>-->
+<!--                                        <div class="oe_button_box" name="button_box"/>-->
+<!--                                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>-->
+                                        <field name="featured_image" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
+                                            <group>
+                                                <field name="name" default_focus="1" placeholder="Name"/>
+                                                <field name="size" placeholder="size"/>
+                                                <field name="description" />
+                                            </group>
+
+
+
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Hotel Images">
+                            <field name="hotel_image_ids" mode="kanban">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="image_1920"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <span class="oe_kanban_global_click">
+                                                <img class="img-fluid img-thumbnail" t-att-src="kanban_image('hotel.image', 'image_1920', record.id.raw_value)" alt="Hotel Images"/>
+<!--                                                <img class="o_image_64_cover img-thumbnail" t-att-src="kanban_image('hotel.image', 'image_1920', record.id.raw_value)" alt="Hotel Images"/>-->
+                                           </span>
+                                        </t>
+                                    </templates>
+                                </kanban>
+
+                                <form string="Rooms">
+                                    <sheet>
+                                        <field name="image_1920" widget="image" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                                        <field name="hotel_id" invisible="1"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+
+
+                        <page string="Hotel Amenities">
+                            <field name="amenities_ids">
+
+                            </field>
+                        </page>
+
+                        <page string="Extra Bed Policy">
+                            <field name="extra_bed_policy_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+<!--                                    <field name="description"/>-->
+                                    <field name="price"/>
+                                </tree>
+                                <form>
+                                    <field name="name"/>
+<!--                                    <field name="description"/>-->
+                                    <field name="price"/>
+                                </form>
+                            </field>
+                        </page>
+
+                        <page string="Surroundings">
+                            <field name="surrounding_lines_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="description"/>
+                                    <field name="distance"/>
+                                </tree>
+                                <form>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="description"/>
+                                    <field name="distance"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Restaurants">
+                            <field name="restaurant_lines_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="cuisine"/>
+                                    <field name="open_for"/>
+                                    <field name="ambiance"/>
+                                </tree>
+                                <form>
+                                    <field name="name"/>
+                                    <field name="cuisine"/>
+                                    <field name="open_for"/>
+                                    <field name="ambiance"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="FAQs">
+                            <field name="faqs_lines_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="answer"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="name"/>
+                                    <field name="answer"/>
+                                    </group>
+
+                                </form>
+                            </field>
+                        </page>
+
+<!--                        <page string="Location">-->
+<!--                            <field name="location"/>-->
+<!--                        </page>-->
+<!--                        <page string="Facility">-->
+<!--                            <field name="facility" widget="html" options="{'codeview': true}"/>-->
+<!--                        </page>-->
+<!--                        <page string="Policy">-->
+<!--                            <field name="hotel_policy" widget="html" options="{'codeview': true}"/>-->
+<!--                        </page>-->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hotel_management_action" model="ir.actions.act_window">
+        <field name="name">Hotels</field>
+        <field name="res_model">hotel.hotel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new Hotel
+          </p>
+        </field>
+    </record>
+</odoo>

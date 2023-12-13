@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_sale_pricelist_form_view" model="ir.ui.view">
+        <field name="name">wt_hotel_reservation.pricelist.form</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="model">product.pricelist</field>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='pricelist_availability']" position="after">
+                <group name="pricelist_hotel_booking" string="Hotel Booking">
+                    <field name="is_allow_on_booking"/>
+                </group>
+            </xpath>
+          </field>
+    </record>
+</odoo>

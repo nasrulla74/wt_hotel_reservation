@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record model="ir.ui.view" id="hotel_room_type_search">
+		<field name="name">room.type.search</field>
+		<field name="model">product.product</field>
+		<field name="arch" type="xml">
+			<search string="Room Types">
+				<field name="name" string="Name" filter_domain="['|', ('name', 'ilike', self), ('room_type_name', 'ilike', self)]"/>
+				<field name="room_type_name"/>
+				<field name="room_category_id" />
+				<field name="hotel_id"/>
+				<group expand="0" string="Extended Filters...">
+                    <field name="room_category_id" context="{'group_by' : 'room_category_id'}"/>
+                </group>
+				<searchpanel>
+					<field name="room_category_id" string="Room Category" enable_counters="1"/>
+				</searchpanel>
+			</search>
+		</field>
+	</record>
+
+
+	<record id="hotel_room_type_action" model="ir.actions.act_window">
+		<field name="name">Room Type</field>
+		<field name="res_model">product.product</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+		<field name="domain">[('is_room_type', '=', True)]</field>
+		<field name="context">{'default_is_room_type': True}</field>
+		<field name="search_view_id" ref="hotel_room_type_search"/>
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+            Create a new Room Type
+          </p>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="hotel_room_type_tree">
+		<field name="name">Room Type Tree</field>
+		<field name="model">product.product</field>
+		<field name="arch" type="xml">
+			<tree string="Room Types">
+				<field name="name"/>
+				<field name="room_type_name"/>
+				<field name="room_category_id" />
+				<field name="hotel_id"/>
+				<field name="adults"/>
+				<field name="childs"/>
+				<field name="infants"/>
+				<field name="currency_id" invisible="1"/>
+				<field name="list_price" widget='monetary' options="{'currency_field': 'currency_id'}" string="Price"/>
+			</tree>
+		</field>
+	</record>
+
+
+
+	<record id="view_hotel_room_type_form" model="ir.ui.view">
+		<field name="name">hotel.room.type..form</field>
+		<field name="model">product.product</field>
+		<field name="arch" type="xml">
+			<form string="Rooms Type">
+				<sheet>
+					<field name="is_room_type" invisible="1"/>
+					<field name="image_1920" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+					<field name="active" invisible="1"/>
+					<div class="oe_button_box" name="button_box"/>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+					<div class="oe_title">
+						<h1>
+
+
+						</h1>
+					</div>
+					<group>
+						<group>
+<!--							<field name="room_category_id" attrs="{'readonly': True}"/>-->
+							<field name="currency_id" invisible="1"/>
+							<field name="hotel_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+							<field name="room_type_name" default_focus="1" placeholder="Room Type"/>
+							<field name="meal_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+							<field name="room_category_id"  options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+							<field name="is_room_type" attrs="{'readonly': True}"/>
+							<field name="is_package"/>
+
+						</group>
+						<group>
+<!--							<field name="room_type" attrs="{'required': [('is_room', '=', True)]}"/>-->
+
+							<field name="list_price" widget='monetary' options="{'currency_field': 'currency_id'}" string="Price"/>
+							<field name="name"/>
+							<field name="taxes_id" widget="many2many_tags"/>
+							<field name="adults"/>
+							<field name="childs"/>
+							<field name="infants"/>
+
+						</group>
+					</group>
+					<notebook colspan="4">
+                        <page string="Package Details" attrs="{'invisible': [('is_package', '=', False)]}">
+
+                        	<group>
+								<group>
+									<field name="bed_nights"/>
+									<field name="package_price"/>
+								</group>
+								<group>
+									<field name="valid_from"/>
+									<field name="valid_to"/>
+									<field name="book_before"/>
+								</group>
+								<div>Package Details</div>
+								<field name="package_details"/>
+							</group>
+                        </page>
+                    </notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window.view" id="action_hotel_room_type_view_tree">
+		<field name="sequence" eval="2"/>
+		<field name="view_mode">tree</field>
+		<field name="view_id" ref="hotel_room_type_tree"/>
+		<field name="act_window_id" ref="hotel_room_type_action"/>
+	</record>
+
+	<record model="ir.actions.act_window.view" id="action_hotel_room_type_view_form">
+		<field name="sequence" eval="3"/>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_hotel_room_type_form"/>
+		<field name="act_window_id" ref="hotel_room_type_action"/>
+	</record>
+
+
+
+</odoo>

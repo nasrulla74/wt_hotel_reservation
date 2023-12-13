@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hotel_type_action" model="ir.actions.act_window">
+        <field name="name">Hotels Type</field>
+        <field name="res_model">hotel.type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Hotel Type
+          </p>
+        </field>
+    </record>
+
+
+
+    <!-- Hotel Amenities -->
+    <record id="hotel_amenities_action" model="ir.actions.act_window">
+        <field name="name">Hotel Amenities</field>
+        <field name="res_model">hotel.amenities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new hotel amenities
+          </p>
+        </field>
+    </record>
+
+
+    <record id="view_hotel_amenities_form" model="ir.ui.view">
+    <field name="name">hotel.amenities.form</field>
+    <field name="model">hotel.amenities</field>
+    <field name="arch" type="xml">
+      <form string="Hotel Amenities">
+        <sheet>
+          <group>
+            <group>
+               <field name="category_id" />
+                <field name="name"/>
+              <field name="fa_icon" placeholder="fa fa-wifi"/>
+              <field name="icon" widget="image" class="oe_avatar"/>
+
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+    <!-- Room Amenities -->
+    <record id="room_ameneties_action" model="ir.actions.act_window">
+        <field name="name">Room Amenities</field>
+        <field name="res_model">room.amenities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new room amenities
+          </p>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_room_amenities_form" model="ir.ui.view">
+    <field name="name">room.amenities.form</field>
+    <field name="model">room.amenities</field>
+    <field name="arch" type="xml">
+      <form string="Room Amenities">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="fa_icon" placeholder="fa fa-wifi"/>
+              <field name="icon" widget="image" class="oe_avatar"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+
+    <record id="view_room_amenities_tree" model="ir.ui.view">
+    <field name="name">room.amenities.tree</field>
+    <field name="model">room.amenities</field>
+    <field name="arch" type="xml">
+          <tree string="Room Amenities">
+                   <field name="name"/>
+                  <field name="fa_icon"/>
+                  <field name="icon" widget="image"/>
+          </tree>
+    </field>
+    </record>
+
+
+
+    <!-- Featured Amenities -->
+    <record id="feat_ameneties_action" model="ir.actions.act_window">
+        <field name="name">Featured Amenities</field>
+        <field name="res_model">feat.amenities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new featured amenities
+          </p>
+        </field>
+    </record>
+    <record id="view_feat_amenities_form" model="ir.ui.view">
+    <field name="name">feat.amenities.form</field>
+    <field name="model">feat.amenities</field>
+    <field name="arch" type="xml">
+      <form string="Featured Amenities">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="fa_icon" placeholder="fa fa-wifi" invisible="1"/>
+              <field name="icon" widget="image" class="oe_avatar"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+
+    <!-- Islands -->
+    <record id="appeul_island_action" model="ir.actions.act_window">
+        <field name="name">Islands</field>
+        <field name="res_model">appeul.island</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new islands
+          </p>
+        </field>
+    </record>
+    <record id="view_appeul_islands_form" model="ir.ui.view">
+    <field name="name">appeul.islands.form</field>
+    <field name="model">appeul.island</field>
+    <field name="arch" type="xml">
+      <form string="Islands">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+               </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+
+    <!-- Payment Methods -->
+    <record id="appeul_payment_methods_action" model="ir.actions.act_window">
+        <field name="name">Payment Methods</field>
+        <field name="res_model">payment.methods</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new islands
+          </p>
+        </field>
+    </record>
+    <record id="view_appeul_payment_methods_form" model="ir.ui.view">
+    <field name="name">payment.methods.form</field>
+    <field name="model">payment.methods</field>
+    <field name="arch" type="xml">
+      <form string="Payment Methods">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="image" widget="image" class="oe_avatar"/>
+               </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+<!-- Atolls -->
+    <record id="appeul_atolls_action" model="ir.actions.act_window">
+        <field name="name">Atolls</field>
+        <field name="res_model">appeul.atoll</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Atolls
+          </p>
+        </field>
+    </record>
+    <record id="view_appeul_atolls_form" model="ir.ui.view">
+    <field name="name">appeul.atoll.form</field>
+    <field name="model">appeul.atoll</field>
+    <field name="arch" type="xml">
+      <form string="Atolls">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+                <field name="island_ids" widget="many2many_tags"/>
+
+               </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+
+    <!-- Amenity Categories -->
+    <record id="appeul_amenity_category_action" model="ir.actions.act_window">
+        <field name="name">Amenity Categories</field>
+        <field name="res_model">amenity.category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new Amenity Categories
+          </p>
+        </field>
+    </record>
+    <record id="view_amenity_category_form" model="ir.ui.view">
+    <field name="name">appeul.amenity.category.form</field>
+    <field name="model">amenity.category</field>
+    <field name="arch" type="xml">
+      <form string="Amenity Categories">
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+                <field name="amenity_ids" widget="many2many_tags"/>
+
+               </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    </record>
+    <!-- tree view   -->
+    <record id="view_amenity_category_tree" model="ir.ui.view">
+    <field name="name">appeul.amenity.category.tree</field>
+    <field name="model">amenity.category</field>
+    <field name="arch" type="xml">
+      <tree string="Amenity Categories">
+              <field name="name"/>
+                <field name="amenity_ids" widget="many2many_tags"/>
+      </tree>
+    </field>
+    </record>
+
+
+
+<!--    -->
+<!-- Meals -->
+
+    <record id="action_hotel_meal" model="ir.actions.act_window">
+        <field name="name">Meal Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hotel.meal</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Meal
+            </p>
+        </field>
+    </record>
+   <record id="view_hotel_meal_tree" model="ir.ui.view">
+        <field name="name">hotel.meal.tree</field>
+        <field name="model">hotel.meal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+   <record id="view_hotel_meal_form" model="ir.ui.view">
+        <field name="name">hotel.meal.form</field>
+        <field name="model">hotel.meal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+
+                        <group>
+                            <field name="name" />
+
+                        </group>
+                    </group>
+
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

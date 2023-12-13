@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Hotel Booking Number -->
+        <record id="seq_booking_number" model="ir.sequence">
+            <field name="name">Hotel Booking</field>
+            <field name="code">hotel.booking</field>
+            <field name="prefix">BK</field>
+            <field name="padding">7</field>
+        </record>
+        <record model="product.pricelist" id="product.list0">
+            <field name="is_allow_on_booking" eval="True" />
+        </record>
+    </data>
+</odoo>

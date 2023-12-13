@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="hotel_room_action" model="ir.actions.act_window">
+		<field name="name">Rooms</field>
+		<field name="res_model">hotel.rooms</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree,form</field>
+<!--		<field name="domain">[('is_room', '=', True)]</field>-->
+<!--		<field name="context">{'default_is_room': True}</field>-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+            Create a new Hotel Room
+          </p>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="hotel_rooms_tree">
+		<field name="name">Rooms Tree</field>
+		<field name="model">hotel.rooms</field>
+		<field name="arch" type="xml">
+			<tree string="Rooms">
+				<field name="name"/>
+				<field name="room_category_id" />
+				<field name="hotel_id"/>
+				<field name="room_state"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_hotel_rooms_form" model="ir.ui.view">
+		<field name="name">hotel.rooms.form</field>
+		<field name="model">hotel.rooms</field>
+		<field name="arch" type="xml">
+			<form string="Rooms">
+				<sheet>
+
+					<group>
+						<group>
+							<field name="name" default_focus="1" placeholder="Name"/>
+							<field name="room_category_id" required="1"/>
+							<field name="hotel_id" required="1"/>
+							<field name="room_state" required="1"/>
+						</group>
+
+					</group>
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+</odoo>

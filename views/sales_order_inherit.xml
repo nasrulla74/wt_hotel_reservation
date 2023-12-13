@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data>
+            <record id="sale.action_orders" model="ir.actions.act_window">
+                <field name="domain">['|', ('is_booking', '=', False), ('state', 'not in', ('draft', 'sent', 'cancel'))]</field>
+            </record>
+
+            <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+                <field name="domain">[('is_booking', '=', False)]</field>
+            </record>
+
+            <record id="appeul_sales_order_form_inherit" model="ir.ui.view">
+                <field name="name">appeul.sales.order.form.inherit</field>
+                <field name="model">sale.order</field>
+                <field name="inherit_id" ref="sale.view_order_form"/>
+                    <field name="arch" type="xml">
+                        <xpath expr="//field[@name='partner_id']" position="after">
+                            <field name="is_booking" invisible="1"/>
+                        </xpath>
+                    </field>
+            </record>
+
+        </data>
+
+
+</odoo>

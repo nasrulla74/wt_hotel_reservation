@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Room category -->
+    <record id="action_appeul_room_category" model="ir.actions.act_window">
+        <field name="name">Room Category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">room.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Category
+            </p>
+        </field>
+    </record>
+    <record id="view_appeul_room_category_tree" model="ir.ui.view">
+        <field name="name">room.room.tree</field>
+        <field name="model">room.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="hotel_id" />
+                <field name="name" />
+                <field name="size" />
+                            <field name="description" />
+
+            </tree>
+        </field>
+    </record>
+    <record id="view_appeul_room_category_form" model="ir.ui.view">
+        <field name="name">room.roomcategory.form</field>
+        <field name="model">room.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="featured_image" widget="image" class="oe_avatar img-thumbnail" />
+
+                <group>
+                        <group>
+
+                            <field name="hotel_id" />
+                            <field name="name" />
+                            <field name="size" />
+                            <field name="description" />
+
+
+
+                        </group>
+                </group>
+					<notebook colspan="4">
+                        <page string="Room Category Images">
+                            <field name="room_image_ids" mode="kanban">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="image_1920"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <span class="oe_kanban_global_click">
+                                                <img class="img-fluid img-thumbnail" t-att-src="kanban_image('room.cat.image', 'image_1920', record.id.raw_value)" alt="Room Cat Images"/>
+                                           </span>
+                                        </t>
+                                    </templates>
+                                </kanban>
+
+                                <form string="Room Category Images">
+                                    <sheet>
+                                        <field name="image_1920" widget="image" class="oe_avatar img-thumbnail" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+                                        <field name="room_cat_id" invisible="1"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Room Amenities">
+                            <field name="room_amenities_ids" mode="kanban">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <field name="icon"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <span class="oe_kanban_global_click">
+                                                <img class="img-fluid oe_avatar" t-att-src="kanban_image('room.amenities', 'icon', record.id.raw_value)" alt="Room Amenities"/>
+                                           </span>
+                                            <span class="mx-3">
+                                                <field name="name"/>
+                                            </span>
+                                        </t>
+                                    </templates>
+                                </kanban>
+
+                                <form string="Room Amenities">
+                                    <sheet>
+                                        <field name="name"/>
+                                        <field name="icon" widget="image" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/>
+<!--                                        <field name="room_cat_id" invisible="1"/>-->
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+
+</odoo>
