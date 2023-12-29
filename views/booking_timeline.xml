@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_booking_timeline" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="type">timeline</field>
+        <field name="arch" type="xml">
+            <timeline
+
+                      date_start="check_in_date"
+                      date_stop="check_out_date"
+                      string="Bookings"
+                      default_group_by="allocated_room_id"
+
+
+            >
+                <field name="booking_name" />
+                <templates>
+                    <t t-name="timeline-item">
+                        <div class="o_project_timeline_item">
+
+                            <span name="display_name">
+                                <t t-esc="record.display_name" />
+                            </span>
+
+                        </div>
+                    </t>
+                </templates>
+
+            </timeline>
+        </field>
+    </record>
+
+
+</odoo>

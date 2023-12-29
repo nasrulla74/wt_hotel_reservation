@@ -29,6 +29,8 @@ class HotelRooms(models.Model):
         ('occupied', 'Occupied'),
     ], string='Room State', copy=False, default='vacant')
 
+
+
 class ProductPricelist(models.Model):
     _inherit = "product.pricelist"
 

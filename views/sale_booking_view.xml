@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record model="ir.ui.view" id="appeul_hotel_booking_search">
+		<field name="name">hotel.booking.search</field>
+		<field name="model">sale.order</field>
+		<field name="arch" type="xml">
+			<search string="Bookings">
+				<field name="booking_name"/>
+
+
+			</search>
+		</field>
+	</record>
+
     <record id="ap_action_orders" model="ir.actions.act_window">
             <field name="name">Booking Orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sale.order</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,timeline</field>
+            <field name="search_view_id" ref="appeul_hotel_booking_search"/>
 <!--            <field name="search_view_id" ref="sale_order_view_search_inherit_sale"/>-->
             <field name="context">{}</field>
 <!--            <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel'))]</field>-->
@@ -101,21 +114,20 @@
                                 confirm="This will update all unit prices based on the currently set pricelist."
                                 attrs="{'invisible': ['|', ('show_update_pricelist', '=', False), ('state', 'in', ['sale', 'done', 'cancel'])]}"/>
                         </div>
+                        <field name="allocated_room_id" />
+                        <field name="room_type_details" readonly="1"/>
 
 
 
                     </group>
                     <group name="order_details">
-<!--                        <field name="room_type_id" domain = "[('is_room_type','=',True)]"/>-->
                         <field name="booking_name" required="1"/>
                          <field name="booking_ref"/>
                         <field name="check_in_date" required="1"/>
                         <field name="check_out_date" required="1"/>
-<!--                        <field name="adults"/>-->
-<!--                        <field name="childs"/>-->
-<!--                        <field name="infants"/>-->
-<!--                        <field name="meal_id"/>-->
+                        <field name="tot_pax"/>
                         <field name="bed_nights"/>
+
 
 <!--                        <field name="validity_date" attrs="{'invisible': [('state', 'in', ['sale', 'done'])]}"/>-->
 <!--                        <div class="o_td_label" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}">-->
@@ -529,19 +541,13 @@
                 <field name="message_needaction" invisible="1"/>
                 <field name="name" string="Number" readonly="1" decoration-bf="1"/>
                 <field name="date_order" string="Order Date" widget="date" optional="show"/>
-<!--                <field name="booking_no" string="Booking No"/>-->
                 <field name="booking_name" string="Booking Name"/>
                 <field name="check_in_date"/>
                 <field name="check_out_date"/>
-<!--                <field name="room_type_id"/>-->
-<!--                <field name="adults"/>-->
-<!--                <field name="childs"/>-->
-<!--                <field name="infants"/>-->
+                <field name="allocated_room_id"/>
                 <field name="booking_ref"/>
                 <field name="bk_state"/>
                 <field name="is_booking"/>
-
-
 <!--                <field name="commitment_date" optional="hide"/>-->
 <!--                <field name="expected_date" optional="hide"/>-->
                 <field name="partner_id" readonly="1"/>
@@ -578,5 +584,14 @@
 		<field name="view_id" ref="booking_view_order_form"/>
 		<field name="act_window_id" ref="ap_action_orders"/>
 	</record>
+
+
+
+
+
+
+
+
+
 
 </odoo>

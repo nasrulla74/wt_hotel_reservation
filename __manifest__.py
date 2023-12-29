@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "Hotel Reservation 1.6.1",
-    "version": "1.6.1",
+    "name": "Hotel Reservation 1.6.2",
+    "version": "1.6.2",
     "category": "Hotel Reservation",
     "summary": "Hotel Reservation",
     "description": """
@@ -11,7 +11,7 @@
     "author": "Appeul - Solutions",
     "website": "http://appeul.com",
     "support": "info@appeul.com",
-    "depends": ['base', 'account', 'utm', 'rating', 'sale'],
+    "depends": ['base', 'account', 'utm', 'rating', 'sale', 'web_timeline'],
     "data": [
         'security/ir.model.access.csv',
         'data/booking_number.xml',
@@ -25,6 +25,7 @@
         'views/pricelist.xml',
         'views/res_config.xml',
         'views/sales_order_inherit.xml',
+        'views/booking_timeline.xml',
 
     ],
     'assets': {},
