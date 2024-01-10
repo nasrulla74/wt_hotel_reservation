@@ -14,7 +14,7 @@ class HotelType(models.Model):
 class HotelRoomType(models.Model):
     #_name = 'hotel.room.type'
     _inherit = 'product.product'
-    _description = 'name'
+    _description = 'Room Types '
 
     is_room_type = fields.Boolean(string="Is Room Type")
     #image_128 = fields.Image(required=True)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "Hotel Reservation 1.6.2",
-    "version": "1.6.2",
+    "name": "Hotel Reservation 1.6.3",
+    "version": "1.6.3",
     "category": "Hotel Reservation",
     "summary": "Hotel Reservation",
     "description": """

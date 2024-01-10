@@ -46,9 +46,10 @@
 <!--            name="Booking"/>-->
     <menuitem
         id="hotel_configuration_menu"
-        groups="base.group_erp_manager"
         parent="menu_hotels_root" sequence="100"
         name="Configuration"/>
+<!--        groups="ap_inherits.group_appeul_gh_manager"-->
+
 
     <!-- Configuration -->
     <menuitem
@@ -69,10 +70,12 @@
     <menuitem
         action="room_ameneties_action"
         id="room_amenities_menu"
+        groups="base.group_erp_manager"
         parent="hotel_configuration_menu" sequence="2"
         name="Room Amenities"/>
     <menuitem
         action="feat_ameneties_action"
+        groups="base.group_erp_manager"
         id="feat_amenities_menu"
         parent="hotel_configuration_menu" sequence="2"
         name="Featured Amenities"/>
@@ -84,6 +87,7 @@
     <menuitem
         action="hotel_amenities_action"
         id="hotel_amenities_menu"
+        groups="base.group_erp_manager"
         parent="hotel_configuration_menu" sequence="4"
         name="Hotel Amenities"/>
 <!--    <menuitem-->
@@ -94,6 +98,7 @@
     <menuitem
         action="appeul_atolls_action"
         id="appeul_atoll_menu"
+        groups="base.group_erp_manager"
         parent="hotel_configuration_menu" sequence="4"
         name="Atolls/Islands"/>
 
@@ -101,11 +106,13 @@
         action="appeul_payment_methods_action"
         id="hotel_payment_method_menu"
         parent="hotel_configuration_menu" sequence="4"
+        groups="base.group_erp_manager"
         name="Payment Methods"/>
 
     <menuitem
         action="appeul_amenity_category_action"
         id="amenity_category_menu"
+        groups="base.group_erp_manager"
         parent="hotel_configuration_menu" sequence="4"
         name="Amenity Categories"/>
 
